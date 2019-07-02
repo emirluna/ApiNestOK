@@ -54,13 +54,21 @@ export class AuthService {
 
         let data: JwtPayload = {
             email: user.email
+            
         };
-
+     
         let jwt = this.jwtService.sign(data);
 
         return {
             expiresIn: 3600,
-            token: jwt            
+            token: jwt,    
+            email: user.email,
+            name: user.name,
+            last_name: user.last_name,
+            phone: user.phone,
+            role: user.role,
+            status: user.status,
+            enterprise_id: user.enterprise_id              
         }
 
     }
